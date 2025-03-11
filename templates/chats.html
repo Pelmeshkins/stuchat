@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chats</title>
+</head>
+<body>
+    <h1>Welcome to Chats, {{ user.username }}!</h1>
+
+
+    <button onclick="window.location.href='/profile/edit'">Edit Profile</button>
+    <!-- Список пользователей -->
+    <h2>Users</h2>
+    <ul>
+        {% for u in users %}
+        <li>
+            {{ u.username }}
+            <button onclick="startChat('{{ u.username }}')">Start Chat</button>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Чат -->
+    <div id="chat">
+        <!-- Сообщения будут отображаться здесь -->
+    </div>
+
+    <!-- Форма для отправки сообщений -->
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        // Функция для начала чата с пользователем
+        function startChat(username) {
+            alert("Starting chat with " + username);
+            // Здесь можно реализовать логику для начала чата
+        }
+
+        // Функция для отправки сообщения
+        function sendMessage() {
+            const message = document.getElementById("messageInput").value;
+            alert("Sending message: " + message);
+            // Здесь можно реализовать логику для отправки сообщения
+        }
+    </script>
+</body>
+</html>

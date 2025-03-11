@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список вакансий</title>
+    <link rel="stylesheet" href="/static/styles/jobs.css">
+</head>
+<body>
+    <div class="container">
+            <h1>Создать вакансию</h1>
+        <h2><p align="center"><a href="/add_job_page">Добавить новую работу</a><br><br></h2></p>
+        <h1>Список вакансий</h1>
+        <div class="job-listings">
+            {% for job in jobs %}
+            <div class="job-card">
+                <h2>{{ job.title }}</h2>
+                <p><strong>Компания:</strong> {{ job.company }}</p>
+                <p><strong>Описание:</strong> {{ job.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

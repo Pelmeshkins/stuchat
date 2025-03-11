@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход/Регистрация</title>
+    <link rel="stylesheet" href="static/styles/style1.css">
+</head>
+<body>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+    <div class="login-container">
+        <!-- Контейнер для всей формы -->
+        <div class="header">
+            <!-- Шапка с кнопкой назад и логотипом -->
+            <img src="static/styles/logo.png" alt="Logo" class="logo">
+            <!-- Логотип -->
+        </div>
+
+        <h2>СтуЧат</h2>
+        <!-- Заголовок формы -->
+
+        <div class="tab-buttons">
+            <!-- Контейнер для кнопок вкладок "Вход" и "Регистрация" -->
+            <button id="login-tab" class="active">Вход</button>
+            <!-- Кнопка "Вход", активна по умолчанию -->
+            <button id="register-tab">Регистрация</button>
+            <!-- Кнопка "Регистрация" -->
+        </div>
+
+        <div class="tab-content" id="login-content">
+            <!-- Контент для вкладки "Вход" -->
+            <form action="/loginp" method="post">
+                <div class="input-field">
+                    <!-- Поле ввода номера телефона -->
+                    <input type="tel" name="username" placeholder="username">
+                </div>
+                <div class="input-field">
+                    <!-- Поле ввода пароля -->
+                    <input type="password" name="password" id="password-input-login" placeholder="Пароль">
+                    <a href="#" class="password-control"></a>
+                </div>
+                <button type="submit" class="login-button">Войти</button>
+                <!-- Кнопка "Войти" -->
+            </form>
+        </div>
+
+        <div class="tab-content" id="register-content" style="display: none;">
+            <!-- Контент для вкладки "Регистрация" -->
+            <form action="/register" method="post">
+                <div class="input-field">
+                    <!-- Поле ввода имени -->
+                    <input type="text" name="name" placeholder="Имя">
+                </div>
+                <div class="input-field">
+                    <!-- Поле ввода никнейма -->
+                    <input type="text" name="username" placeholder="Никнейм">
+                </div>
+                <div class="input-field">
+                    <!-- Поле ввода номера телефона -->
+                    <input type="tel" name="phone_number" placeholder="7XXXXXXXXXX" id="phone-number">
+                </div>
+                <div class="input-field">
+                    <!-- Поле ввода пароля -->
+                    <input type="password" name="password" id="password-input-register" placeholder="Пароль">
+                    <a href="#" class="password-control"></a>
+                </div>
+                <div class="input-field">
+                    <!-- Поле ввода подтверждения пароля -->
+                    <input type="password" name="confirm_password" id="password-input-confirm" placeholder="Пароль ещё раз">
+                    <a href="#" class="password-control"></a>
+                </div>
+                <div id="password-error" class="error-message" style="display: none;">Пароли не совпадают</div>
+                <button type="submit" class="register-button">Зарегистрироваться</button>
+                <!-- Кнопка "Зарегистрироваться" -->
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="static/script1.js"></script>
+</body>
+</html>

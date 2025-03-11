@@ -1,0 +1,166 @@
+body {
+    font-family: sans-serif;
+    overflow: hidden;
+    background-color: #181818;
+    /* Темный фон */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("background.png");
+    /* Установка фонового изображения */
+    background-size: cover;
+    /* Растягивание фона на весь сайт */
+    background-repeat: no-repeat;
+    /* Запрет повторения фона */
+}
+
+.login-container {
+    /* Более светлый темный фон для контейнера */
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    /* Необходимо для абсолютного позиционирования header */
+}
+
+
+/* Невидимая шапка для фиксации логотипа и кнопки "Назад" */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    /* Делаем шапку невидимой */
+    overflow: visible;
+    display: flex;
+    align-items: flex-start;
+    /* Выравнивание элементов по верхнему краю шапки */
+    justify-content: space-between;
+    /* Размещение элементов по краям */
+    padding: 40px;
+    /* Отступы вокруг элементов */
+}
+
+.logo {
+    width: 130px;
+    /* Увеличенный размер логотипа */
+    height: 130px;
+    /* Увеличенный размер логотипа */
+    position: fixed;
+    /* Фиксация логотипа на экране */
+    top: 20px;
+    /* Расстояние от верхнего края экрана */
+    left: 20px;
+    /* Расстояние от левого края экрана */
+    z-index: 100;
+    /* Обеспечение отображения логотипа поверх других элементов */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    /* Центрирование кнопок */
+    margin-bottom: 15px;
+}
+
+.tab-buttons button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 8px 15px;
+    border-bottom: 2px solid transparent;
+    /* Изначально без подчеркивания */
+    cursor: pointer;
+    margin: 0 5px;
+    /* Небольшой отступ между кнопками */
+    transition: border-bottom 0.3s ease;
+    /* Плавный переход при переключении вкладок */
+}
+
+.tab-buttons button.active {
+    border-bottom: 2px solid #8774e1;
+    /* Подчеркивание активной вкладки */
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: #181818;
+    color: #fff;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.password-control {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+    cursor: pointer;
+}
+
+.password-control.view {
+    background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+}
+
+.login-button,
+.register-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8774e1;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    /* плавный переход */
+}
+
+.login-button:hover,
+.register-button:hover {
+    background-color: #8774e1;
+    /* darker shade on hover */
+}
+
+.tab-content {
+    transition: opacity 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+    /* Скрываем содержимое, выходящее за границы */
+}
+
+.tab-content.active {
+    opacity: 1;
+    /* Делаем контент видимым */
+    height: auto;
+    /* Автоматическая высота контента */
+}
+
+.error-message {
+    color: #8774e1;
+    margin-top: 5px;
+    text-align: center;
+}

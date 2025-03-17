@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сту Чат</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="menu-icon"><i class="fas fa-bars"></i></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Поиск">
+                    <button class="create-chat-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat-categories">
+                <div class="category active" data-category="all">
+                    <i class="fas fa-comment"></i>
+                    <span>Все чаты</span>
+                </div>
+            </div>
+
+            <div class="chat-list" data-category="all">
+                <div class="chat-item active" data-chat-id="1" data-user-name="тиори" data-user-avatar="dChiori.jpg">
+                    <div class="chat-avatar">
+                        <img src="dChiori.jpg" alt="нет фото">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name">тиори</div>
+                        <div class="chat-preview">Последнее сообщение...</div>
+                    </div>
+                    <div class="chat-time">12:00</div>
+                </div>
+            </div>
+
+            <div class="chat-list hidden" data-category="personal">
+                <div class="chat-item active" data-chat-id="1" data-user-name="Тестовый Чат" data-user-avatar="dChiori.jpg">
+                    <div class="chat-avatar">
+                        <img src="dChiori.jpg" alt="нет фото">
+                    </div>
+                    <div class="chat-info">
+                        <div class="chat-name">Тестовый Чат</div>
+                        <div class="chat-preview">Последнее сообщение...</div>
+                    </div>
+                    <div class="chat-time">12:00</div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-area hidden" data-chat-id="1">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <button2 id="openModalBtn">
+                        <img src="" alt="Ничего" id="chat-user-avatar">
+                    </button2>
+                </div>
+                <div class="chat-user-name" id="chat-user-name"></div>
+            </div>
+
+            <div class="message-container" id="message-container">
+                <div class="message received">Привет!</div>
+                <div class="message sent">Здарова!</div>
+                <div class="message received">Как дела?</div>
+                <div class="message sent">Норм, а у тебя?</div>
+                <div class="message received">Привет!</div>
+                <div class="message sent">Здарова!</div>
+                <div class="message received">Как дела?</div>
+                <div class="message sent">Норм, а у тебя?</div>
+                <div class="message received">Привет!</div>
+                <div class="message sent">Здарова!</div>
+                <div class="message received">Как дела?</div>
+                <div class="message sent">Норм, а у тебя?</div>
+            </div>
+            <div class="message-input">
+                <input type="text" placeholder="Написать сообщение..." id="message-input">
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </main>
+
+        <!-- Модальное окно (перемещено вне <main>) -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-header">
+                    <div class="modal-avatar">
+                        <img src="" alt="Аватар" id="modal-user-avatar">
+                    </div>
+                    <div class="modal-header-info">
+                        <div class="modal-username" id="modal-username">username</div>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="modal-phone-container">
+                        <i class="fas fa-phone"></i>
+                        <div class="modal-phone" id="modal-phone">79999999999</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+        />
+
+        <main class="empty-chat-area">
+            <div class="empty-chat">
+                Выберите, кому хотели бы написать
+            </div>
+        </main>
+    </div>
+
+    <div id="profile-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="profile-info">
+                <img id="profile-avatar" src="dChiori.jpg" alt="Аватар">
+                <h2 id="profile-name"></h2>
+                <p>Статус: Онлайн</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

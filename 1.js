@@ -141,6 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuModalAvatar = document.getElementById('menu-modal-user-avatar');
     const themeSelect = document.getElementById('theme-select');
 
+    // Получаем контейнер чата
+    const chatContainer = document.querySelector('.container'); // Выберите правильный селектор для вашего контейнера
+
     // Обработчик события для выбора фото профиля
     changePhotoButton.addEventListener('click', function() {
         profilePhotoInput.click(); // Вызываем клик по скрытому input
@@ -157,11 +160,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Обработчик события для изменения темы
     themeSelect.addEventListener('change', function() {
         const selectedTheme = this.value;
-        // Здесь нужно добавить код для изменения темы
-        console.log(`Выбрана тема: ${selectedTheme}`); // Просто выводим в консоль
+
+        // Удаляем все классы тем
+        chatContainer.classList.remove('red', 'blue', 'green');
+
+        // Добавляем выбранную тему (если она не "default")
+        if (selectedTheme !== 'default') {
+            chatContainer.classList.add(selectedTheme);
+        }
     });
 
     // =============================================================================================
@@ -218,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Удаляем класс fade-out после завершения анимации
             setTimeout(function() {
-                messageElement.classList.remove("fade-out");
+                messageElement.classList.remove("fade-out"); // Убираем класс fade-out
             }, 300); // 300 мс - время анимации
         }
     }

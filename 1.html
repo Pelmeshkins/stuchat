@@ -39,22 +39,11 @@
                         <img src="" alt="нет фото">
                     </div>
                     <div class="chat-info">
-                        <div class="chat-name">тиори</div>
-                        <div class="chat-preview">Последнее сообщение...</div>
-                    </div>
-                    <div class="chat-time">12:00</div>
-                </div>
-            </div>
-
-            <div class="chat-list hidden" data-category="personal">
-                <div class="chat-item active" data-chat-id="1" data-user-name="Тестовый Чат" data-user-avatar="dChiori.jpg">
-                    <div class="chat-avatar">
-                        <img src="" alt="нет фото">
-                    </div>
-                    <div class="chat-info">
                         <div class="chat-name">Тестовый Чат</div>
+                        <!-- эту хуйню тоже если надо -->
                         <div class="chat-preview">Последнее сообщение...</div>
                     </div>
+                    <!-- время сами удалите если надо -->
                     <div class="chat-time">12:00</div>
                 </div>
             </div>
@@ -65,25 +54,14 @@
                 <div class="chat-avatar">
                     <button2 id="openModalBtn">
                         <!-- Кнопка для открытия модального окна по аватарке -->
-                        <img src="" alt="Ничего" id="chat-user-avatar">
+                        <img src="" alt="нет фото" id="chat-user-avatar">
                     </button2>
                 </div>
                 <div class="chat-user-name" id="chat-user-name"></div>
             </div>
 
             <div class="message-container" id="message-container">
-                <div class="message received">Привет!</div>
-                <div class="message sent">Здарова!</div>
-                <div class="message received">Как дела?</div>
-                <div class="message sent">Норм, а у тебя?</div>
-                <div class="message received">Привет!</div>
-                <div class="message sent">Здарова!</div>
-                <div class="message received">Как дела?</div>
-                <div class="message sent">Норм, а у тебя?</div>
-                <div class="message received">Привет!</div>
-                <div class="message sent">Здарова!</div>
-                <div class="message received">Как дела?</div>
-                <div class="message sent">Норм, а у тебя?</div>
+
             </div>
             <div class="message-input">
                 <input type="text" placeholder="Написать сообщение..." id="message-input">
@@ -131,27 +109,26 @@
                         <i class="fas fa-phone"></i>
                         <div class="modal-phone" id="modal-phone">а сюда его номер</div>
                     </div>
+                    <!-- 
                 </div>
-                <!-- Добавляем элементы для выбора темы -->
+                Добавляем элементы для выбора темы
                 <div class="theme-selector">
-                    <label for="theme-select">Изменить тему:</label>
-                    <select id="theme-select">
-                <option value="light">Светлая</option>
-                <option value="dark">Темная</option>
-                <option value="blue">Синяя</option>
-            </select>
+                    <label for="theme-color">Выберите цвет темы:</label>
+                    <input type="color" id="theme-color" value="#8774e1">
+                     Значение по умолчанию 
+                </div>
+                -->
                 </div>
             </div>
+
+            <main class="empty-chat-area">
+                <div class="empty-chat">
+                    Выберите, кому хотели бы написать
+                </div>
+            </main>
         </div>
 
-        <main class="empty-chat-area">
-            <div class="empty-chat">
-                Выберите, кому хотели бы написать
-            </div>
-        </main>
-    </div>
-
-    <script src="1.js"></script>
+        <script src="1.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сту Чат</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
 </head>
@@ -13,15 +13,11 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-
             <div class="sidebar-header">
-                <button2 id="openModalBtn">
-                    <!-- Кнопка для открытия модального окна по аватарке -->
-                    <img src="" alt="Ничего" id="chat-user-avatar">
-                </button2>
-                <button class="menu-icon">
+
+                <button2 class="menu-icon">
                     <i class="fas fa-bars"></i>
-                  </button>
+                </button2>
                 <div class="search-bar">
                     <input type="text" placeholder="Поиск">
                     <button2 class="create-chat-btn">
@@ -32,7 +28,7 @@
 
             <div class="chat-categories">
                 <div class="category active" data-category="all">
-                    <i class="fas fa-comment"></i>
+                    <i class="modal hidden">></i>
                     <span>Все чаты</span>
                 </div>
             </div>
@@ -40,7 +36,7 @@
             <div class="chat-list" data-category="all">
                 <div class="chat-item active" data-chat-id="1" data-user-name="тиори" data-user-avatar="dChiori.jpg">
                     <div class="chat-avatar">
-                        <img src="dChiori.jpg" alt="нет фото">
+                        <img src="" alt="нет фото">
                     </div>
                     <div class="chat-info">
                         <div class="chat-name">тиори</div>
@@ -53,7 +49,7 @@
             <div class="chat-list hidden" data-category="personal">
                 <div class="chat-item active" data-chat-id="1" data-user-name="Тестовый Чат" data-user-avatar="dChiori.jpg">
                     <div class="chat-avatar">
-                        <img src="dChiori.jpg" alt="нет фото">
+                        <img src="" alt="нет фото">
                     </div>
                     <div class="chat-info">
                         <div class="chat-name">Тестовый Чат</div>
@@ -68,6 +64,7 @@
             <div class="chat-header">
                 <div class="chat-avatar">
                     <button2 id="openModalBtn">
+                        <!-- Кнопка для открытия модального окна по аватарке -->
                         <img src="" alt="Ничего" id="chat-user-avatar">
                     </button2>
                 </div>
@@ -94,8 +91,8 @@
             </div>
         </main>
 
-        <!-- Модальное окно (перемещено вне <main>) -->
-        <div id="myModal" class="modal">
+        <!-- Модальное окно (myModal) -->
+        <div id="myModal" class="modal hidden">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-header">
@@ -103,7 +100,7 @@
                         <img src="" alt="Аватар" id="modal-user-avatar">
                     </div>
                     <div class="modal-header-info">
-                        <div class="modal-username" id="modal-username">username</div>
+                        <div class="modal-username" id="modal-username">хуй</div>
                     </div>
                 </div>
                 <div class="modal-details">
@@ -114,16 +111,35 @@
                 </div>
             </div>
         </div>
-
-        <!-- Модальное окно для меню -->
+        <!-- Модальное окно для меню (menuModal) -->
         <div id="menuModal" class="modal hidden">
             <div class="modal-content">
-                <span class="close-menu-modal">&times;</span>
+                <span class="close">&times;</span>
                 <div class="modal-header">
-                    <h2>Меню</h2>
+                    <div class="modal-avatar">
+                        <img src="" alt="Аватар" id="menu-modal-user-avatar">
+                    </div>
+                    <!-- Кнопка выбора фото профиля под аватаркой -->
+                    <input type="file" id="profile-photo-input" accept="image/*" style="display: none;">
+                    <button id="change-photo-btn">Выбрать фото</button>
+                    <div class="modal-header-info">
+                        <div class="modal-username" id="menu-modal-username">СЮДА ЮЗЕР ПИДОРА ИЗ БД</div>
+                    </div>
                 </div>
                 <div class="modal-details">
-                    <p>Случайная информация: <span id="random-info"></span></p>
+                    <div class="modal-phone-container">
+                        <i class="fas fa-phone"></i>
+                        <div class="modal-phone" id="modal-phone">а сюда его номер</div>
+                    </div>
+                </div>
+                <!-- Добавляем элементы для выбора темы -->
+                <div class="theme-selector">
+                    <label for="theme-select">Изменить тему:</label>
+                    <select id="theme-select">
+                <option value="light">Светлая</option>
+                <option value="dark">Темная</option>
+                <option value="blue">Синяя</option>
+            </select>
                 </div>
             </div>
         </div>
@@ -135,18 +151,7 @@
         </main>
     </div>
 
-    <div id="profile-modal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="profile-info">
-                <img id="profile-avatar" src="dChiori.jpg" alt="Аватар">
-                <h2 id="profile-name"></h2>
-                <p>Статус: Онлайн</p>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="1.js"></script>
 </body>
 
 </html>

@@ -13,15 +13,11 @@
 <body>
     <div class="container">
         <aside class="sidebar">
-
             <div class="sidebar-header">
-                <button2 id="openModalBtn">
-                    <!-- Кнопка для открытия модального окна по аватарке -->
-                    <img src="" alt="Ничего" id="chat-user-avatar">
-                </button2>
-                <button class="menu-icon">
+
+                <button2 class="menu-icon">
                     <i class="fas fa-bars"></i>
-                  </button>
+                </button2>
                 <div class="search-bar">
                     <input type="text" placeholder="Поиск">
                     <button2 class="create-chat-btn">
@@ -32,33 +28,22 @@
 
             <div class="chat-categories">
                 <div class="category active" data-category="all">
-                    <i class="fas fa-comment"></i>
+                    <i class="modal hidden">></i>
                     <span>Все чаты</span>
                 </div>
             </div>
 
             <div class="chat-list" data-category="all">
-                <div class="chat-item active" data-chat-id="1" data-user-name="тиори" data-user-avatar="dChiori.jpg">
+                <div class="chat-item active" data-chat-id="1" data-user-name="ФИ чела" data-user-avatar="">
                     <div class="chat-avatar">
-                        <img src="dChiori.jpg" alt="нет фото">
+                        <img src="" alt="нет фото">
                     </div>
                     <div class="chat-info">
-                        <div class="chat-name">тиори</div>
+                        <div class="chat-name">ФИ чела</div>
+                        <!-- эту хуйню тоже если надо -->
                         <div class="chat-preview">Последнее сообщение...</div>
                     </div>
-                    <div class="chat-time">12:00</div>
-                </div>
-            </div>
-
-            <div class="chat-list hidden" data-category="personal">
-                <div class="chat-item active" data-chat-id="1" data-user-name="Тестовый Чат" data-user-avatar="dChiori.jpg">
-                    <div class="chat-avatar">
-                        <img src="dChiori.jpg" alt="нет фото">
-                    </div>
-                    <div class="chat-info">
-                        <div class="chat-name">Тестовый Чат</div>
-                        <div class="chat-preview">Последнее сообщение...</div>
-                    </div>
+                    <!-- время сами удалите если надо -->
                     <div class="chat-time">12:00</div>
                 </div>
             </div>
@@ -68,25 +53,15 @@
             <div class="chat-header">
                 <div class="chat-avatar">
                     <button2 id="openModalBtn">
-                        <img src="" alt="Ничего" id="chat-user-avatar">
+                        <!-- Кнопка для открытия модального окна по аватарке -->
+                        <img src="" alt="нет фото" id="chat-user-avatar">
                     </button2>
                 </div>
                 <div class="chat-user-name" id="chat-user-name"></div>
             </div>
 
             <div class="message-container" id="message-container">
-                <div class="message received">Привет!</div>
-                <div class="message sent">Здарова!</div>
-                <div class="message received">Как дела?</div>
-                <div class="message sent">Норм, а у тебя?</div>
-                <div class="message received">Привет!</div>
-                <div class="message sent">Здарова!</div>
-                <div class="message received">Как дела?</div>
-                <div class="message sent">Норм, а у тебя?</div>
-                <div class="message received">Привет!</div>
-                <div class="message sent">Здарова!</div>
-                <div class="message received">Как дела?</div>
-                <div class="message sent">Норм, а у тебя?</div>
+
             </div>
             <div class="message-input">
                 <input type="text" placeholder="Написать сообщение..." id="message-input">
@@ -94,8 +69,8 @@
             </div>
         </main>
 
-        <!-- Модальное окно (перемещено вне <main>) -->
-        <div id="myModal" class="modal">
+        <!-- Модальное окно (myModal) -->
+        <div id="myModal" class="modal hidden">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-header">
@@ -103,7 +78,7 @@
                         <img src="" alt="Аватар" id="modal-user-avatar">
                     </div>
                     <div class="modal-header-info">
-                        <div class="modal-username" id="modal-username">username</div>
+                        <div class="modal-username" id="modal-username">хуй</div>
                     </div>
                 </div>
                 <div class="modal-details">
@@ -114,39 +89,46 @@
                 </div>
             </div>
         </div>
-
-        <!-- Модальное окно для меню -->
+        <!-- Модальное окно для меню (menuModal) -->
         <div id="menuModal" class="modal hidden">
             <div class="modal-content">
-                <span class="close-menu-modal">&times;</span>
+                <span class="close">&times;</span>
                 <div class="modal-header">
-                    <h2>Меню</h2>
+                    <div class="modal-avatar">
+                        <img src="" alt="Аватар" id="menu-modal-user-avatar">
+                    </div>
+                    <!-- Кнопка выбора фото профиля под аватаркой -->
+                    <input type="file" id="profile-photo-input" accept="image/*" style="display: none;">
+                    <button id="change-photo-btn">Выбрать фото</button>
+                    <div class="modal-header-info">
+                        <div class="modal-username" id="menu-modal-username">СЮДА ЮЗЕР ПИДОРА ИЗ БД</div>
+                    </div>
                 </div>
                 <div class="modal-details">
-                    <p>Случайная информация: <span id="random-info"></span></p>
+                    <div class="modal-phone-container">
+                        <i class="fas fa-phone"></i>
+                        <div class="modal-phone" id="modal-phone">а сюда его номер</div>
+                    </div>
+                    <!-- 
+                </div>
+                Добавляем элементы для выбора темы
+                <div class="theme-selector">
+                    <label for="theme-color">Выберите цвет темы:</label>
+                    <input type="color" id="theme-color" value="#8774e1">
+                     Значение по умолчанию 
+                </div>
+                -->
                 </div>
             </div>
+
+            <main class="empty-chat-area">
+                <div class="empty-chat">
+                    Выберите, кому хотели бы написать
+                </div>
+            </main>
         </div>
 
-        <main class="empty-chat-area">
-            <div class="empty-chat">
-                Выберите, кому хотели бы написать
-            </div>
-        </main>
-    </div>
-
-    <div id="profile-modal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="profile-info">
-                <img id="profile-avatar" src="dChiori.jpg" alt="Аватар">
-                <h2 id="profile-name"></h2>
-                <p>Статус: Онлайн</p>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>

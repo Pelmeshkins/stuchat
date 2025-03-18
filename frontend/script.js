@@ -72,11 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var modalUsername = document.getElementById("modal-username");
 
     // Получаем номер телефона
-    var phoneNumber = "79999999999"; // Это нужно будет изменить, чтобы получить динамически!
+    var phoneNumber = "79999999999";
     var modalPhone = document.getElementById("modal-phone");
-
-    // Получаем chat-header
-    const chatHeader = document.querySelector('.chat-header');
 
     // Устанавливаем имя пользователя в модальном окне
     if (chatUsername) {
@@ -89,38 +86,91 @@ document.addEventListener('DOMContentLoaded', function() {
     // Получаем элемент иконки меню
     const menuIcon = document.querySelector('.menu-icon');
 
+    // Получаем элементы для myModal
+    var myModal = document.getElementById("myModal");
+    var btn = document.getElementById("openModalBtn");
+    var myModalSpan = myModal.querySelector(".close");
+
+    // Получаем элементы для menuModal
+    var menuModal = document.getElementById("menuModal");
+    var menuModalSpan = menuModal.querySelector(".close");
+
     // *********************************************************************************************
     //  Открываем модальное окно по клику на иконку меню
-    menuIcon.addEventListener('click', function() {
-        // Заполняем аватар
-        var chatAvatarSrc = document.getElementById("chat-user-avatar").src;
-        document.getElementById("modal-user-avatar").src = chatAvatarSrc;
-
-        // Открываем модальное окно
-        modal.classList.remove('hidden');
-    });
+    if (menuIcon) {
+        menuIcon.addEventListener('click', function() {
+            // Открываем модальное окно
+            menuModal.style.display = "block"; // Открываем menuModal
+        });
+    }
 
     // *********************************************************************************************
     // Открываем модальное окно по клику на аватар (как и раньше)
     btn.onclick = function() {
-        var chatAvatarSrc = document.getElementById("chat-user-avatar").src;
-        document.getElementById("modal-user-avatar").src = chatAvatarSrc;
-        modal.style.display = "block";
+        myModal.style.display = "block"; // Открываем myModal
     }
 
     // *********************************************************************************************
-    // Закрытие модального окна
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // *********************************************************************************************
-    // Закрытие модального окна по клику вне модального окна
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+    // Закрытие модальных окон (крестики)
+    if (myModalSpan) {
+        myModalSpan.onclick = function() {
+            myModal.style.display = "none";
         }
     }
+
+    if (menuModalSpan) {
+        menuModalSpan.onclick = function() {
+            menuModal.style.display = "none";
+        }
+    }
+
+    // *********************************************************************************************
+    // Закрытие модальных окон по клику вне модального окна
+    window.onclick = function(event) {
+        if (event.target == myModal) {
+            myModal.style.display = "none";
+        }
+        if (event.target == menuModal) {
+            menuModal.style.display = "none";
+        }
+    }
+
+    // Получаем элементы для выбора фото профиля и изменения темы
+    const changePhotoButton = document.getElementById('change-photo-btn');
+    const profilePhotoInput = document.getElementById('profile-photo-input');
+    const menuModalAvatar = document.getElementById('menu-modal-user-avatar');
+    const themeSelect = document.getElementById('theme-select');
+
+    // Получаем контейнер чата
+    const chatContainer = document.querySelector('.container'); // Выберите правильный селектор для вашего контейнера
+
+    // Обработчик события для выбора фото профиля
+    changePhotoButton.addEventListener('click', function() {
+        profilePhotoInput.click(); // Вызываем клик по скрытому input
+    });
+
+    profilePhotoInput.addEventListener('change', function() {
+        const file = this.files[0]; // Получаем выбранный файл
+        if (file) {
+            const reader = new FileReader(); // Создаем FileReader
+            reader.onload = function(e) {
+                menuModalAvatar.src = e.target.result; // Устанавливаем аватар
+            }
+            reader.readAsDataURL(file); // Читаем файл как Data URL
+        }
+    });
+
+    themeSelect.addEventListener('change', function() {
+        const selectedTheme = this.value;
+
+        // Удаляем все классы тем
+        chatContainer.classList.remove('red', 'blue', 'green');
+
+        // Добавляем выбранную тему (если она не "default")
+        if (selectedTheme !== 'default') {
+            chatContainer.classList.add(selectedTheme);
+        }
+    });
 
     // =============================================================================================
     // Все что ниже - код для функциональности чата и т.д.
@@ -176,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Удаляем класс fade-out после завершения анимации
             setTimeout(function() {
-                messageElement.classList.remove("fade-out");
+                messageElement.classList.remove("fade-out"); // Убираем класс fade-out
             }, 300); // 300 мс - время анимации
         }
     }

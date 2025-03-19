@@ -139,7 +139,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const changePhotoButton = document.getElementById('change-photo-btn');
     const profilePhotoInput = document.getElementById('profile-photo-input');
     const menuModalAvatar = document.getElementById('menu-modal-user-avatar');
-    const themeSelect = document.getElementById('theme-select');
+    // const themeSelect = document.getElementById('theme-select');
+    // Добавляем код для палитры цветов
+    const themeColorInput = document.getElementById('theme-color');
 
     // Получаем контейнер чата
     const chatContainer = document.querySelector('.container'); // Выберите правильный селектор для вашего контейнера
@@ -159,17 +161,28 @@ document.addEventListener('DOMContentLoaded', function() {
             reader.readAsDataURL(file); // Читаем файл как Data URL
         }
     });
+    themeColorInput.addEventListener('change', function() {
+        const selectedColor = this.value; // Получаем выбранный цвет
+        // Устанавливаем значение CSS-переменной для контейнера
+        chatContainer.style.setProperty('--theme-color', selectedColor);
+    });
 
-    themeSelect.addEventListener('change', function() {
-        const selectedTheme = this.value;
+    // Добавляем код для информации о себе (menuModal)
+    const aboutMeTextarea = document.getElementById('about-me');
 
-        // Удаляем все классы тем
-        chatContainer.classList.remove('red', 'blue', 'green');
-
-        // Добавляем выбранную тему (если она не "default")
-        if (selectedTheme !== 'default') {
-            chatContainer.classList.add(selectedTheme);
+    // При открытии модального окна, загружаем информацию из Local Storage
+    menuIcon.addEventListener('click', function() { // Используем иконку меню для открытия
+        const savedAboutMe = localStorage.getItem('aboutMe');
+        if (savedAboutMe) {
+            aboutMeTextarea.value = savedAboutMe;
         }
+    });
+
+    // При закрытии модального окна, сохраняем информацию в Local Storage
+    menuModalSpan.addEventListener('click', function() { // Используем крестик в menuModal
+        const aboutMe = aboutMeTextarea.value;
+        localStorage.setItem('aboutMe', aboutMe);
+        console.log('Информация "О себе" сохранена: ' + aboutMe); // Выводим в консоль
     });
 
     // =============================================================================================

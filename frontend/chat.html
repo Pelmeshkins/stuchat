@@ -103,12 +103,15 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div class="modal-header">
-                    <div class="modal-avatar">
-                        <img src="" alt="Аватар" id="menu-modal-user-avatar">
+                    <div class="modal-avatar-container">
+                        <!--  Внешний контейнер для аватарки и кнопки -->
+                        <img src="danyalox.gif" alt="Аватар" id="menu-modal-user-avatar">
+                        <!-- Кнопка для выбора фото профиля (с иконкой) -->
+                        <button id="change-photo-btn">
+                    <img src="changephoto.png" alt="Изменить фото">
+                </button>
                     </div>
-                    <!-- Кнопка выбора фото профиля под аватаркой -->
                     <input type="file" id="profile-photo-input" accept="image/*" style="display: none;">
-                    <button id="change-photo-btn">Выбрать фото</button>
                     <div class="modal-header-info">
                         <div class="modal-username" id="menu-modal-username">СЮДА ЮЗЕР ПИДОРА ИЗ БД</div>
                     </div>
@@ -118,19 +121,19 @@
                         <i class="fas fa-phone"></i>
                         <div class="modal-phone" id="modal-phone">79999999999</div>
                     </div>
-
                     <div class="about-me-container">
                         <label for="about-me">О себе:</label>
                         <!-- подгруз инфы о себе и сохранение сразу -->
                         <textarea id="about-me" rows="4" cols="30"></textarea>
                     </div>
+                    <!-- Кнопка выхода -->
+                    <button id="logout-btn">
+                <img src="logout.png" alt="Выйти">
+            </button>
                 </div>
-
-
-
-
-
-                <script src="script.js"></script>
+            </div>
+        </div>
+        <script src="script.js"></script>
 </body>
 
 </html>

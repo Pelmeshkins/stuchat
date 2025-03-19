@@ -535,3 +535,105 @@ button2:focus {
     outline: none;
     /* Убираем обводку при фокусе */
 }
+
+
+/* Общие стили */
+
+.modal-avatar-container {
+    position: relative;
+    /* Относительное позиционирование для контейнера */
+    width: 100px;
+    /* Задайте ширину контейнера */
+    height: 90px;
+    border-radius: 503%;
+    overflow: hidden;
+    /* Скрываем все, что выходит за границы */
+    display: inline-block;
+    /*  Важно!  Чтобы контейнер соответствовал размеру аватарки */
+}
+
+#menu-modal-user-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s;
+    /* Плавное изменение прозрачности */
+    display: block;
+    /*  Важно!  Чтобы img не занимал всю ширину */
+}
+
+#change-photo-btn {
+    position: absolute;
+    top: -5px;
+    /*  <---  Начальное положение.  По умолчанию - вверху. */
+    left: 0;
+    /*  <---  Начальное положение. */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    /* bottom: -10px;  Удалите это, если есть */
+    /* transform: translateX(-50%);  Удалите это, если есть */
+}
+
+.modal-avatar-container:hover #menu-modal-user-avatar {
+    opacity: 0.6;
+    /* Затеняем аватар при наведении */
+}
+
+.modal-avatar-container:hover #change-photo-btn {
+    opacity: 1;
+    /* Показываем кнопку при наведении */
+}
+
+#change-photo-btn img {
+    width: 30px;
+    /* Размер иконки */
+    height: 30px;
+    display: block;
+    /*  Важно!  Чтобы img корректно отображалась */
+}
+
+
+/* Кнопка выхода */
+
+#logout-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Полупрозрачный фон */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Легкая рамка */
+    cursor: pointer;
+    display: block;
+    /* Чтобы кнопка занимала всю ширину */
+    width: calc(100% - 20px);
+    /* Ширина кнопки с учетом отступов */
+    margin: 10px auto;
+    /* Отступы сверху и снизу, выравнивание по центру */
+    padding: 10px;
+    /* Увеличьте отступы */
+    border-radius: 5px;
+    text-align: center;
+    /* Выравнивание текста по центру */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+#logout-btn img {
+    width: 24px;
+    /* Размер иконки */
+    height: 24px;
+    vertical-align: middle;
+    /* Выравниваем иконку по центру по вертикали */
+    margin-right: 8px;
+    /* Отступ между иконкой и текстом */
+}

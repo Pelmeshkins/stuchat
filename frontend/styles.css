@@ -514,3 +514,24 @@ button2:focus {
     border-radius: 4px;
     border: 1px solid #ccc;
 }
+
+.about-me-container textarea {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    /* Делаем рамку прозрачной */
+    width: 100%;
+    box-sizing: border-box;
+    /* Чтобы padding не увеличивал ширину */
+    background-color: transparent;
+    /* Делаем фон прозрачным */
+    resize: none;
+    /* Запрещаем изменение размера */
+    color: #fff;
+    /* Устанавливаем цвет текста (например, белый) */
+}
+
+.about-me-container textarea:focus {
+    outline: none;
+    /* Убираем обводку при фокусе */
+}
